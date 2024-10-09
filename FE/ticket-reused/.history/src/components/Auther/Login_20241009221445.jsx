@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { ImSpinner9 } from "react-icons/im";
-import LogoTicket from "@/assets/image/LogoTicket.png";
+import logo from "./assets/images/LogoTicket.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -67,12 +67,9 @@ const Login = () => {
         </div>
 
         {/* Avatar */}
-        <div
-          className="flex justify-center mb-4 cursor-pointer"
-          onClick={() => navigate("/")}
-        >
+        <div className="flex justify-center mb-4">
           <img
-            src={LogoTicket}
+            src="/assets/LogoTicket.png"
             alt="Logo"
             className="w-20 h-20 rounded-full shadow-lg"
           />

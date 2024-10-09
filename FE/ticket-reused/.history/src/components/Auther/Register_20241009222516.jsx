@@ -64,8 +64,8 @@ const Register = () => {
 
         {/* Avatar */}
         <div
-          className="flex justify-center mb-4 cursor-pointer"
-          onClick={() => navigate("/")}
+          className="flex justify-center mb-4"
+          onClick={() => navigate("/homepage")}
         >
           <img
             src={LogoTicket}

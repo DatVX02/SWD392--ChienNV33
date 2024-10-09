@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import LogoTicket from "@/assets/image/LogoTicket.png"; // Đảm bảo đường dẫn đúng tới ảnh
+import LogoTicket from "@/assets/image/LogoTicket.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -7,22 +7,23 @@ const Header = () => {
   return (
     <header className="fixed z-10 w-full shadow-md bg-slate-600">
       <div className="container flex items-center justify-between p-4 mx-auto">
-        {/* Logo Section */}
-        <div
-          className="flex items-center cursor-pointer"
-          onClick={() => navigate("/")} // Điều hướng về HomePage khi click vào Logo
-        >
+        <div className="flex justify-center mb-4">
           <img
             src={LogoTicket}
             alt="Logo"
-            className="w-16 h-16 mr-2 transition duration-200 transform rounded-full shadow-lg hover:scale-105" // Thêm hiệu ứng scale khi hover
+            className="w-20 h-20 rounded-full shadow-lg"
           />
-          <h1 className="text-3xl font-bold text-white">TicketResell</h1>
         </div>
+        <h1
+          className="text-2xl font-bold text-white cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          Website Logo
+        </h1>
 
         {/* Navigation */}
         <nav className="flex items-center space-x-6">
-          {/* Main Menu */}
+          {/* Menu chính */}
           <ul className="flex space-x-4">
             <li
               className="text-white cursor-pointer hover:text-green-500"
@@ -50,7 +51,7 @@ const Header = () => {
             </li>
           </ul>
 
-          {/* Auth Menu */}
+          {/* Menu đăng ký / đăng nhập */}
           <ul className="flex pl-4 space-x-4 border-l border-gray-300">
             <li
               className="text-white cursor-pointer hover:text-green-500"
