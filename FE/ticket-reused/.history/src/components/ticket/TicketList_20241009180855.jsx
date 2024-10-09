@@ -1,9 +1,12 @@
 import { SwiperSlide, Swiper } from "swiper/react";
+// import MovieCard, { MovieCardSkeleton } from "./MovieCard";
 import PropTypes from "prop-types";
 import { withErrorBoundary } from "react-error-boundary";
 import TicketCard, { TicketCardSkeleton } from "./TicketCard";
 
+// eslint-disable-next-line react/prop-types
 const TicketList = () => {
+  // Dữ liệu tĩnh thay vì lấy từ API
   const movies = [
     { id: 1, title: "Ticket 1", vote_average: 7.5, release_date: "2021-01-01" },
     { id: 2, title: "Ticket 2", vote_average: 6.8, release_date: "2022-05-13" },
@@ -12,35 +15,21 @@ const TicketList = () => {
   const isLoading = false;
 
   return (
-    <div className="px-4 movie-list md:px-8">
-      {" "}
-      {/* Thêm padding ngang cho toàn bộ component */}
+    <div className="movie-list">
+      {/* Khi đang tải (loading) hiển thị khung Loading Skeleton */}
       {isLoading && (
-        <Swiper
-          grabCursor={"true"}
-          spaceBetween={40}
-          slidesPerView={"auto"}
-          className="px-4 md:px-8"
-        >
-          <SwiperSlide className="px-2">
-            {" "}
-            {/* Thêm padding ngang cho từng slide */}
+        <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
+          <SwiperSlide>
             <TicketCardSkeleton />
           </SwiperSlide>
         </Swiper>
       )}
+      {/* Hiển thị danh sách ticket khi không tải */}
       {!isLoading && (
-        <Swiper
-          grabCursor={"true"}
-          spaceBetween={40}
-          slidesPerView={"auto"}
-          className="px-4 md:px-8"
-        >
+        <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
           {movies.length > 0 &&
             movies.map((item) => (
-              <SwiperSlide key={item.id} className="px-2">
-                {" "}
-                {/* Thêm padding ngang cho từng slide */}
+              <SwiperSlide key={item.id}>
                 <TicketCard item={item} />
               </SwiperSlide>
             ))}

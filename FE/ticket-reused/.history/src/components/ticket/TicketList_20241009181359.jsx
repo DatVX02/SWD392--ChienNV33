@@ -1,4 +1,4 @@
-import { SwiperSlide, Swiper } from "swiper/react";
+// import { SwiperSlide, Swiper } from "swiper/react";
 import PropTypes from "prop-types";
 import { withErrorBoundary } from "react-error-boundary";
 import TicketCard, { TicketCardSkeleton } from "./TicketCard";
@@ -13,38 +13,20 @@ const TicketList = () => {
 
   return (
     <div className="px-4 movie-list md:px-8">
-      {" "}
-      {/* Thêm padding ngang cho toàn bộ component */}
-      {isLoading && (
-        <Swiper
-          grabCursor={"true"}
-          spaceBetween={40}
-          slidesPerView={"auto"}
-          className="px-4 md:px-8"
-        >
-          <SwiperSlide className="px-2">
-            {" "}
-            {/* Thêm padding ngang cho từng slide */}
-            <TicketCardSkeleton />
-          </SwiperSlide>
-        </Swiper>
-      )}
+      {/* Hiển thị danh sách ticket khi không tải */}
       {!isLoading && (
-        <Swiper
-          grabCursor={"true"}
-          spaceBetween={40}
-          slidesPerView={"auto"}
-          className="px-4 md:px-8"
-        >
+        <div className="flex gap-4 overflow-x-auto">
+          {" "}
+          {/* Sử dụng flexbox và thêm overflow */}
           {movies.length > 0 &&
             movies.map((item) => (
-              <SwiperSlide key={item.id} className="px-2">
+              <div key={item.id} className="flex-none w-64">
                 {" "}
-                {/* Thêm padding ngang cho từng slide */}
+                {/* Đặt chiều rộng cố định cho các card */}
                 <TicketCard item={item} />
-              </SwiperSlide>
+              </div>
             ))}
-        </Swiper>
+        </div>
       )}
     </div>
   );

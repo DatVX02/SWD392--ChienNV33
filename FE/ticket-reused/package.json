@@ -15,6 +15,7 @@
     "react-error-boundary": "^4.0.13",
     "react-router-dom": "^6.26.2",
     "swiper": "^11.1.14",
+    "swr": "^2.2.5",
     "vue-fragment": "^1.6.0"
   },
   "devDependencies": {

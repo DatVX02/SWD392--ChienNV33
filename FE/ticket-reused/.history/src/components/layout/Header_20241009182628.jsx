@@ -4,6 +4,9 @@ const Header = () => {
       <div className="container flex items-center justify-between p-4 mx-auto">
         <h1 className="text-2xl font-bold text-white">Website Logo</h1>
         <nav className="flex items-center space-x-6">
+          {" "}
+          {/* Thêm flex và space-x-6 để tạo khoảng cách */}
+          {/* Mục chính */}
           <ul className="flex space-x-4">
             <li className="text-white cursor-pointer hover:text-green-500">
               Trang chủ
@@ -18,8 +21,10 @@ const Header = () => {
               Liên hệ
             </li>
           </ul>
-
+          {/* Mục đăng ký và đăng nhập */}
           <ul className="flex pl-4 space-x-4 border-l border-gray-300">
+            {" "}
+            {/* Thêm border trái để phân tách */}
             <li className="text-white cursor-pointer hover:text-green-500">
               Register
             </li>

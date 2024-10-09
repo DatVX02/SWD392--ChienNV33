@@ -18,19 +18,22 @@ function App() {
           <h2 className="mb-8 text-3xl font-bold">Sự kiện đặc biệt</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {/* Card sự kiện */}
-            <TicketList type="Special Event"></TicketList>
+            <TicketList></TicketList>
           </div>
-          <h2 className="mb-8 text-3xl font-bold">Sự kiện Âm nhạc</h2>
+          <h2 className="mb-8 text-3xl font-bold">Sự kiện đặc biệt</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <TicketList type="Music Event"></TicketList>
+            {/* Card sự kiện */}
+            <TicketList></TicketList>
           </div>
-          <h2 className="mb-8 text-3xl font-bold">Sự kiện có tính xu hướng</h2>
+          <h2 className="mb-8 text-3xl font-bold">Sự kiện đặc biệt</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <TicketList type="Trending Event"></TicketList>
+            {/* Card sự kiện */}
+            <TicketList></TicketList>
           </div>
-          <h2 className="mb-8 text-3xl font-bold">Sự kiện sắp tới</h2>
+          <h2 className="mb-8 text-3xl font-bold">Sự kiện đặc biệt</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <TicketList type="Upcomming Event"></TicketList>
+            {/* Card sự kiện */}
+            <TicketList></TicketList>
           </div>
         </section>
       </main>

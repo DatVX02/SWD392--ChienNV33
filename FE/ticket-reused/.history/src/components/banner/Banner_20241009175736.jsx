@@ -4,10 +4,7 @@ const Banner = () => {
   return (
     <div
       className="relative bg-cover bg-center h-[500px] text-white"
-      style={{
-        backgroundImage:
-          "url(https://media.viez.vn/prod/2024/5/11/large_image_0b56b32622.png",
-      }}
+      style={{ backgroundImage: "url(https://example.com/banner-image.jpg)" }}
     >
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="container relative flex flex-col items-center justify-center h-full mx-auto">

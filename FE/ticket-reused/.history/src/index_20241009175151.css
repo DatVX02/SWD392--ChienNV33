@@ -26,7 +26,7 @@
     height: 100%;
   }
 }
-/* .pagination{
+.pagination{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,5 +45,3 @@
     background-size: 200% 100%;
     animation: 1.5s shine linear infinite;
   }
-  
-} */

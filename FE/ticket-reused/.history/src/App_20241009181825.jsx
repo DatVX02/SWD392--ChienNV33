@@ -22,7 +22,7 @@ function App() {
           </div>
           <h2 className="mb-8 text-3xl font-bold">Sự kiện Âm nhạc</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <TicketList type="Music Event"></TicketList>
+            <TicketList></TicketList>
           </div>
           <h2 className="mb-8 text-3xl font-bold">Sự kiện có tính xu hướng</h2>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">

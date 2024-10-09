@@ -14,7 +14,7 @@ const HomePage = () => {
         <h2 className="mb-10 text-3xl font-bold text-white capitalize">
           Sự Kiện Âm Nhạc
         </h2>
-        <TicketList type="Music event"></TicketList>
+        <TicketList type="event music"></TicketList>
       </section>
       <section className="pb-20 moive-layout page-container">
         <h2 className="mb-10 text-3xl font-bold text-white capitalize">
