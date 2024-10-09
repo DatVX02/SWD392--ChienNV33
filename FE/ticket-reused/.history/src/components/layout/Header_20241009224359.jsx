@@ -17,7 +17,7 @@ const Header = () => {
             alt="Logo"
             className="w-16 h-16 mr-2 transition duration-200 transform rounded-full shadow-lg hover:scale-105" // Thêm hiệu ứng scale khi hover
           />
-          <h1 className="text-3xl font-bold text-slate-600">TicketResell</h1>
+          <h1 className="text-3xl font-bold text-white">TicketResell</h1>
         </div>
 
         {/* Navigation */}

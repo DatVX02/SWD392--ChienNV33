@@ -5,7 +5,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="fixed z-10 w-full shadow-md bg-primary">
+    <header className="fixed z-10 w-full shadow-md bg-third">
       <div className="container flex items-center justify-between p-4 mx-auto">
         {/* Logo Section */}
         <div
