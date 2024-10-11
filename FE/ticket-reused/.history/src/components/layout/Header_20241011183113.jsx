@@ -2,26 +2,25 @@ import { useState } from "react";
 import Banner from "./components/banner/Banner";
 import Header from "./components/layout/Header";
 import HomePage from "./components/page/HomePage";
-import LoginModal from "./components/User/LoginModal"; // Import the LoginModal component
+import LoginModal from "./components/User/LoginModal"; // Import LoginModal
+import RegisterModal from "./components/User/RegisterModal"; // Optional: Import RegisterModal
 import { Outlet } from "react-router-dom";
-import RegisterModal from "./components/User/RegisterModal";
 
 const App = () => {
-  // State to control the visibility of the LoginModal
+  // State to control the visibility of the Login and Register Modals
   const [isLoginVisible, setLoginVisible] = useState(false);
   const [isRegisterVisible, setRegisterVisible] = useState(false);
 
-  // Show/Hide handlers for Login and Register modals
-  const handleShowLogin = () => {
-    setLoginVisible(true);
-    setRegisterVisible(false); // Hide Register modal when Login is shown
-  };
+  // Function to show the Login Modal
+  const handleShowLogin = () => setLoginVisible(true);
+
+  // Function to hide the Login Modal
   const handleHideLogin = () => setLoginVisible(false);
 
-  const handleShowRegister = () => {
-    setRegisterVisible(true);
-    setLoginVisible(false); // Hide Login modal when Register is shown
-  };
+  // Function to show the Register Modal
+  const handleShowRegister = () => setRegisterVisible(true);
+
+  // Function to hide the Register Modal
   const handleHideRegister = () => setRegisterVisible(false);
 
   return (
@@ -48,24 +47,13 @@ const App = () => {
         {/* Footer Section */}
         <div className="footer-container"></div>
 
-        {/* Modals */}
-        {isLoginVisible && (
-          <LoginModal
-            onClose={() => {
-              console.log("Closing Login Modal");
-              handleHideLogin();
-            }}
-          />
-        )}
-        {isRegisterVisible && (
-          <RegisterModal
-            onClose={() => {
-              console.log("Closing Register Modal");
-              handleHideRegister();
-            }}
-          />
-        )}
+        {/* Login Modal */}
+        {isLoginVisible && <LoginModal onClose={handleHideLogin} />}
 
+        {/* Optional: Register Modal */}
+        {isRegisterVisible && <RegisterModal onClose={handleHideRegister} />}
+
+        {/* Outlet for nested routes */}
         <div className="app-container">
           <Outlet />
         </div>

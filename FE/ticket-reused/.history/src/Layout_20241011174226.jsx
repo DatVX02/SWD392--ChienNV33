@@ -4,7 +4,7 @@ import App from "./App";
 import Login from "./components/Auther/Login";
 import Register from "./components/Auther/Register";
 import LoginModal from "./components/User/LoginModal";
-import RegisterModal from "./components/User/RegisterModal";
+import HomePage from "./components/page/HomePage";
 // import CardPage from "./components/page/CardPage";
 
 const Layout = () => {
@@ -18,9 +18,9 @@ const Layout = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<App />}>
+        <Route path="/login" element={<Login />} />
+        <Route index element={<HomePage />}>
           <Route path="/user/login" element={<LoginModal />} />
-          <Route path="/user/register" element={<RegisterModal />} />
         </Route>
 
         <Route path="/login" element={<Login />} />

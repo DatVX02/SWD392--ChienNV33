@@ -3,8 +3,8 @@ import App from "./App";
 // import HomePage from "./components/page/HomePage";
 import Login from "./components/Auther/Login";
 import Register from "./components/Auther/Register";
+import LoginUser from "./components/User/LoginModal";
 import LoginModal from "./components/User/LoginModal";
-import RegisterModal from "./components/User/RegisterModal";
 // import CardPage from "./components/page/CardPage";
 
 const Layout = () => {
@@ -18,13 +18,11 @@ const Layout = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<App />}>
-          <Route path="/user/login" element={<LoginModal />} />
-          <Route path="/user/register" element={<RegisterModal />} />
-        </Route>
+        <Route path="/" element={<App />}></Route>
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/user/login" element={<LoginModal />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>

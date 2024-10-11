@@ -2,7 +2,6 @@
 import { useNavigate } from "react-router-dom";
 import LogoTicket from "@/assets/image/LogoTicket.png"; // Ensure the path is correct
 
-// eslint-disable-next-line react/prop-types
 const Header = ({ onLoginClick, onRegisterClick }) => {
   const navigate = useNavigate();
 

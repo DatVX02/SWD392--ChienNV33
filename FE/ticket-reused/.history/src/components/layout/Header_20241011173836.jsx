@@ -1,9 +1,7 @@
-// import React from "react";
 import { useNavigate } from "react-router-dom";
-import LogoTicket from "@/assets/image/LogoTicket.png"; // Ensure the path is correct
+import LogoTicket from "@/assets/image/LogoTicket.png"; // Đảm bảo đường dẫn đúng tới ảnh
 
-// eslint-disable-next-line react/prop-types
-const Header = ({ onLoginClick, onRegisterClick }) => {
+const Header = () => {
   const navigate = useNavigate();
 
   return (
@@ -12,12 +10,12 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
         {/* Logo Section */}
         <div
           className="flex items-center cursor-pointer"
-          onClick={() => navigate("/")} // Navigate to the HomePage when clicking the logo
+          onClick={() => navigate("/")} // Điều hướng về HomePage khi click vào Logo
         >
           <img
             src={LogoTicket}
             alt="Logo"
-            className="w-16 h-16 mr-2 transition duration-200 transform rounded-full shadow-lg hover:scale-105"
+            className="w-16 h-16 mr-2 transition duration-200 transform rounded-full shadow-lg hover:scale-105" // Thêm hiệu ứng scale khi hover
           />
           <h1 className="text-3xl font-bold text-slate-600">TicketResell</h1>
         </div>
@@ -28,25 +26,25 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
           <ul className="flex space-x-4">
             <li
               className="text-white cursor-pointer hover:text-slate-600"
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/")} // Điều hướng về Trang chủ
             >
               Trang chủ
             </li>
             <li
               className="text-white cursor-pointer hover:text-slate-600"
-              onClick={() => navigate("/products")}
+              onClick={() => navigate("/products")} // Điều hướng về trang Sản phẩm
             >
               Sản phẩm
             </li>
             <li
               className="text-white cursor-pointer hover:text-slate-600"
-              onClick={() => navigate("/news")}
+              onClick={() => navigate("/news")} // Điều hướng về trang Tin tức
             >
               Tin tức
             </li>
             <li
               className="text-white cursor-pointer hover:text-slate-600"
-              onClick={() => navigate("/contact")}
+              onClick={() => navigate("/contact")} // Điều hướng về trang Liên hệ
             >
               Liên hệ
             </li>
@@ -56,13 +54,13 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
           <ul className="flex pl-4 space-x-4 border-l border-gray-300">
             <li
               className="text-white cursor-pointer hover:text-slate-600"
-              onClick={onRegisterClick} // Use onRegisterClick prop for Register button
+              onClick={() => navigate("/register")} // Điều hướng đến trang Đăng ký
             >
               Register
             </li>
             <li
               className="text-white cursor-pointer hover:text-slate-600"
-              onClick={onLoginClick} // Use onLoginClick prop for Login button
+              onClick={() => navigate("/login")} // Điều hướng đến trang Đăng nhập
             >
               Login
             </li>

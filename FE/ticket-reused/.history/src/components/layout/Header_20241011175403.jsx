@@ -2,8 +2,8 @@
 import { useNavigate } from "react-router-dom";
 import LogoTicket from "@/assets/image/LogoTicket.png"; // Ensure the path is correct
 
-// eslint-disable-next-line react/prop-types
-const Header = ({ onLoginClick, onRegisterClick }) => {
+// The Header component now accepts an `onLoginClick` prop
+const Header = ({ onLoginClick }) => {
   const navigate = useNavigate();
 
   return (
@@ -56,13 +56,14 @@ const Header = ({ onLoginClick, onRegisterClick }) => {
           <ul className="flex pl-4 space-x-4 border-l border-gray-300">
             <li
               className="text-white cursor-pointer hover:text-slate-600"
-              onClick={onRegisterClick} // Use onRegisterClick prop for Register button
+              onClick={() => navigate("/register")}
             >
               Register
             </li>
+            {/* Modify the Login button to call `onLoginClick` instead of navigating to another page */}
             <li
               className="text-white cursor-pointer hover:text-slate-600"
-              onClick={onLoginClick} // Use onLoginClick prop for Login button
+              onClick={onLoginClick}
             >
               Login
             </li>

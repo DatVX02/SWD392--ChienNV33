@@ -4,6 +4,7 @@ import Header from "./components/layout/Header";
 import HomePage from "./components/page/HomePage";
 import LoginModal from "./components/User/LoginModal"; // Import the LoginModal component
 import { Outlet } from "react-router-dom";
+import { FlatESLint } from "eslint/use-at-your-own-risk";
 import RegisterModal from "./components/User/RegisterModal";
 
 const App = () => {
@@ -11,17 +12,10 @@ const App = () => {
   const [isLoginVisible, setLoginVisible] = useState(false);
   const [isRegisterVisible, setRegisterVisible] = useState(false);
 
-  // Show/Hide handlers for Login and Register modals
-  const handleShowLogin = () => {
-    setLoginVisible(true);
-    setRegisterVisible(false); // Hide Register modal when Login is shown
-  };
+  const handleShowLogin = () => setLoginVisible(true);
   const handleHideLogin = () => setLoginVisible(false);
 
-  const handleShowRegister = () => {
-    setRegisterVisible(true);
-    setLoginVisible(false); // Hide Login modal when Register is shown
-  };
+  const handleShowRegister = () => setRegisterVisible(true);
   const handleHideRegister = () => setRegisterVisible(false);
 
   return (
@@ -29,10 +23,7 @@ const App = () => {
       <div className="app-container">
         {/* Header Section */}
         <div className="header-container">
-          <Header
-            onLoginClick={handleShowLogin}
-            onRegisterClick={handleShowRegister}
-          />
+          <Header onLoginClick={handleShowLogin} />
         </div>
 
         {/* Main Banner and Content */}
@@ -48,23 +39,8 @@ const App = () => {
         {/* Footer Section */}
         <div className="footer-container"></div>
 
-        {/* Modals */}
-        {isLoginVisible && (
-          <LoginModal
-            onClose={() => {
-              console.log("Closing Login Modal");
-              handleHideLogin();
-            }}
-          />
-        )}
-        {isRegisterVisible && (
-          <RegisterModal
-            onClose={() => {
-              console.log("Closing Register Modal");
-              handleHideRegister();
-            }}
-          />
-        )}
+        {isLoginVisible && <LoginModal onClose={handleHideLogin} />}
+        {isRegisterVisible && <RegisterModal onClose={handleHideLogin} />}
 
         <div className="app-container">
           <Outlet />

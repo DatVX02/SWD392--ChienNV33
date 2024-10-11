@@ -4,35 +4,27 @@ import Header from "./components/layout/Header";
 import HomePage from "./components/page/HomePage";
 import LoginModal from "./components/User/LoginModal"; // Import the LoginModal component
 import { Outlet } from "react-router-dom";
-import RegisterModal from "./components/User/RegisterModal";
 
 const App = () => {
   // State to control the visibility of the LoginModal
   const [isLoginVisible, setLoginVisible] = useState(false);
-  const [isRegisterVisible, setRegisterVisible] = useState(false);
 
-  // Show/Hide handlers for Login and Register modals
+  // Function to show the LoginModal
   const handleShowLogin = () => {
     setLoginVisible(true);
-    setRegisterVisible(false); // Hide Register modal when Login is shown
   };
-  const handleHideLogin = () => setLoginVisible(false);
 
-  const handleShowRegister = () => {
-    setRegisterVisible(true);
-    setLoginVisible(false); // Hide Login modal when Register is shown
+  // Function to hide the LoginModal
+  const handleHideLogin = () => {
+    setLoginVisible(false);
   };
-  const handleHideRegister = () => setRegisterVisible(false);
 
   return (
     <>
       <div className="app-container">
         {/* Header Section */}
         <div className="header-container">
-          <Header
-            onLoginClick={handleShowLogin}
-            onRegisterClick={handleShowRegister}
-          />
+          <Header onLoginClick={handleShowLogin} />
         </div>
 
         {/* Main Banner and Content */}
@@ -48,24 +40,10 @@ const App = () => {
         {/* Footer Section */}
         <div className="footer-container"></div>
 
-        {/* Modals */}
-        {isLoginVisible && (
-          <LoginModal
-            onClose={() => {
-              console.log("Closing Login Modal");
-              handleHideLogin();
-            }}
-          />
-        )}
-        {isRegisterVisible && (
-          <RegisterModal
-            onClose={() => {
-              console.log("Closing Register Modal");
-              handleHideRegister();
-            }}
-          />
-        )}
+        {/* Login Modal */}
+        {isLoginVisible && <LoginModal onClose={handleHideLogin} />}
 
+        {/* Outlet for nested routes */}
         <div className="app-container">
           <Outlet />
         </div>
