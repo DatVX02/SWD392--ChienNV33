@@ -1,16 +1,13 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoTicket from "@/assets/image/LogoTicket.png"; // Ensure the path is correct
 
-const RegisterModal = ({ onClose }) => {
+const RegisterModal = ({ onClose, onShowLogin }) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
   const navigate = useNavigate();
-
-  const handleClose = onClose || (() => {});
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -44,7 +41,7 @@ const RegisterModal = ({ onClose }) => {
       setUsername("");
       setPassword("");
       setErrors({ email: "", password: "" });
-      handleClose(); // Close the modal after successful submission
+      onClose && onClose();
     }
   };
 
@@ -56,10 +53,7 @@ const RegisterModal = ({ onClose }) => {
       <div className="relative w-full max-w-md p-8 bg-white rounded-lg shadow-lg z-60">
         {/* Close Button */}
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            handleClose();
-          }}
+          onClick={onClose}
           className="absolute text-gray-500 top-2 right-2 hover:text-gray-700"
         >
           <svg
@@ -108,6 +102,7 @@ const RegisterModal = ({ onClose }) => {
             )}
           </div>
 
+          {/* Username Field */}
           <div className="mb-4">
             <label className="block mb-2 text-sm font-medium text-gray-600">
               Nhập Username
@@ -121,6 +116,7 @@ const RegisterModal = ({ onClose }) => {
             />
           </div>
 
+          {/* Password Field */}
           <div className="mb-4">
             <label className="block mb-2 text-sm font-medium text-gray-600">
               Nhập password
@@ -147,16 +143,20 @@ const RegisterModal = ({ onClose }) => {
           </button>
         </form>
 
+        {/* Additional Links */}
         <div className="mb-4 text-sm text-center">
           <span className="text-gray-600">Already have an account? </span>
           <a
-            className="text-blue-500 cursor-pointer hover:underline"
-            onClick={() => navigate("/user/login")}
+            className="text-blue-500 hover:underline"
+            onClick={() => {
+              navigate("/user/login");
+            }}
           >
             Login now!
           </a>
         </div>
 
+        {/* Terms and Privacy */}
         <div className="text-xs text-center text-gray-500">
           Bằng việc tiếp tục, bạn đã đọc kĩ và đồng ý với{" "}
           <a href="#" className="text-green-600 hover:underline">
@@ -171,11 +171,6 @@ const RegisterModal = ({ onClose }) => {
       </div>
     </div>
   );
-};
-
-// Adding prop types for validation
-RegisterModal.propTypes = {
-  onClose: PropTypes.func.isRequired,
 };
 
 export default RegisterModal;

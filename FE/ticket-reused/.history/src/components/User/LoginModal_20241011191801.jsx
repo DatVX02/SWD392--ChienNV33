@@ -1,65 +1,86 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
+import LogoTicket from "@/assets/image/LogoTicket.png";
 import { useNavigate } from "react-router-dom";
-import LogoTicket from "@/assets/image/LogoTicket.png"; // Ensure the path is correct
 
-const RegisterModal = ({ onClose }) => {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+// eslint-disable-next-line react/prop-types
+const LoginModal = ({ onClose }) => {
+  console.log(onClose, "Onclose");
+  // State to store form input values
+  const [emailOrUsername, setEmailOrUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
-  const handleClose = onClose || (() => {});
+  // State to store validation errors
+  const [errors, setErrors] = useState({
+    emailOrUsername: "",
+    password: "",
+  });
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Email and username validation regex patterns
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
 
+  // Function to validate the form fields
   const validate = () => {
-    let emailError = "";
+    let emailOrUsernameError = "";
     let passwordError = "";
 
-    if (!email) {
-      emailError = "Email is required";
-    } else if (!emailRegex.test(email)) {
-      emailError = "Please enter a valid email";
+    // Email or username validation
+    if (!emailOrUsername) {
+      emailOrUsernameError = "Email or Username is required";
+    } else if (
+      !emailRegex.test(emailOrUsername) &&
+      emailOrUsername.indexOf(" ") !== -1
+    ) {
+      // Check if it is not a valid email and contains spaces (for usernames)
+      emailOrUsernameError =
+        "Please enter a valid email or username without spaces";
     }
 
+    // Password validation
     if (!password) {
       passwordError = "Password is required";
     } else if (password.length < 6) {
       passwordError = "Password must be at least 6 characters long";
     }
 
-    setErrors({ email: emailError, password: passwordError });
+    // Update the error state
+    setErrors({
+      emailOrUsername: emailOrUsernameError,
+      password: passwordError,
+    });
 
-    return !emailError && !passwordError;
+    // Return true if no errors
+    return !emailOrUsernameError && !passwordError;
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Validate the form
     if (validate()) {
-      console.log("Form submitted:", { email, username, password });
-      setEmail("");
-      setUsername("");
+      // If form is valid, submit the data (for now, just log it)
+      console.log("Form submitted:", { emailOrUsername, password });
+
+      // Reset form fields (optional)
+      setEmailOrUsername("");
       setPassword("");
-      setErrors({ email: "", password: "" });
-      handleClose(); // Close the modal after successful submission
+      setErrors({ emailOrUsername: "", password: "" });
+
+      // Optional: Call onClose after successful submission to hide modal
+      onClose && onClose();
     }
   };
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
-      style={{ backdropFilter: "blur(5px)" }}
+      style={{ backdropFilter: "blur(5px)" }} // Optional: Add a blur effect to the backdrop
     >
       <div className="relative w-full max-w-md p-8 bg-white rounded-lg shadow-lg z-60">
         {/* Close Button */}
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            handleClose();
-          }}
+          onClick={onClose} // Call the onClose prop when the close button is clicked
           className="absolute text-gray-500 top-2 right-2 hover:text-gray-700"
         >
           <svg
@@ -78,49 +99,41 @@ const RegisterModal = ({ onClose }) => {
           </svg>
         </button>
 
-        {/* Register Header */}
+        {/* Login Header */}
         <div className="flex flex-col items-center mb-6">
           <img
             src={LogoTicket}
             alt="Logo"
-            className="w-24 h-24 rounded-full shadow-lg"
+            className="shadow-lg w-28 h-28 rounded-xl" // Increased size to 112px (w-28 h-28) and used 'rounded-xl' for larger corners
           />
-          <h2 className="text-3xl font-bold text-green-600">Register</h2>
+          <h2 className="text-4xl font-bold text-green-600">Login</h2>{" "}
+          {/* Updated font size to 4xl */}
         </div>
-
-        {/* Register Form */}
+        {/* Login Form */}
         <form onSubmit={handleSubmit}>
+          {/* Email or Username Field */}
           <div className="mb-4">
             <label className="block mb-2 text-sm font-medium text-gray-600">
-              Nhập Email
-            </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.email ? "border-red-500" : ""
-              }`}
-              placeholder="Nhập Email"
-            />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-            )}
-          </div>
-
-          <div className="mb-4">
-            <label className="block mb-2 text-sm font-medium text-gray-600">
-              Nhập Username
+              Nhập Email Hoặc Username
             </label>
             <input
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Nhập Username"
+              value={emailOrUsername}
+              onChange={(e) => setEmailOrUsername(e.target.value)}
+              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                errors.emailOrUsername ? "border-red-500" : ""
+              }`}
+              placeholder="Nhập Email Hoặc Username"
             />
+            {/* Display email or username error message */}
+            {errors.emailOrUsername && (
+              <p className="mt-1 text-sm text-red-500">
+                {errors.emailOrUsername}
+              </p>
+            )}
           </div>
 
+          {/* Password Field */}
           <div className="mb-4">
             <label className="block mb-2 text-sm font-medium text-gray-600">
               Nhập password
@@ -134,6 +147,7 @@ const RegisterModal = ({ onClose }) => {
               }`}
               placeholder="Nhập password"
             />
+            {/* Display password error message */}
             {errors.password && (
               <p className="mt-1 text-sm text-red-500">{errors.password}</p>
             )}
@@ -143,20 +157,25 @@ const RegisterModal = ({ onClose }) => {
             type="submit"
             className="w-full px-4 py-2 mb-4 text-white bg-green-600 rounded-lg hover:bg-green-700"
           >
-            Register
+            Login
           </button>
         </form>
 
-        <div className="mb-4 text-sm text-center">
-          <span className="text-gray-600">Already have an account? </span>
+        {/* Additional Links */}
+        <div className="flex items-center justify-between mb-4 text-sm">
+          <a href="#" className="text-blue-500 hover:underline">
+            Forgot password?
+          </a>
           <a
-            className="text-blue-500 cursor-pointer hover:underline"
-            onClick={() => navigate("/user/login")}
+            href="#"
+            className="text-blue-500 hover:underline"
+            onClick={() => navigate("/user/register")}
           >
-            Login now!
+            Register now!
           </a>
         </div>
 
+        {/* Terms and Privacy */}
         <div className="text-xs text-center text-gray-500">
           Bằng việc tiếp tục, bạn đã đọc kĩ và đồng ý với{" "}
           <a href="#" className="text-green-600 hover:underline">
@@ -173,9 +192,4 @@ const RegisterModal = ({ onClose }) => {
   );
 };
 
-// Adding prop types for validation
-RegisterModal.propTypes = {
-  onClose: PropTypes.func.isRequired,
-};
-
-export default RegisterModal;
+export default LoginModal;

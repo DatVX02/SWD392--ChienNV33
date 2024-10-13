@@ -1,16 +1,13 @@
-import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LogoTicket from "@/assets/image/LogoTicket.png"; // Ensure the path is correct
 
-const RegisterModal = ({ onClose }) => {
+const RegisterModal = ({ onClose = () => {}, onShowLogin }) => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
   const navigate = useNavigate();
-
-  const handleClose = onClose || (() => {});
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -44,7 +41,7 @@ const RegisterModal = ({ onClose }) => {
       setUsername("");
       setPassword("");
       setErrors({ email: "", password: "" });
-      handleClose(); // Close the modal after successful submission
+      onClose(); // Close the modal after successful submission
     }
   };
 
@@ -57,8 +54,8 @@ const RegisterModal = ({ onClose }) => {
         {/* Close Button */}
         <button
           onClick={(e) => {
-            e.preventDefault();
-            handleClose();
+            e.preventDefault(); // Prevent any default behavior
+            onClose(); // Ensure the modal closes properly
           }}
           className="absolute text-gray-500 top-2 right-2 hover:text-gray-700"
         >
@@ -171,11 +168,6 @@ const RegisterModal = ({ onClose }) => {
       </div>
     </div>
   );
-};
-
-// Adding prop types for validation
-RegisterModal.propTypes = {
-  onClose: PropTypes.func.isRequired,
 };
 
 export default RegisterModal;
