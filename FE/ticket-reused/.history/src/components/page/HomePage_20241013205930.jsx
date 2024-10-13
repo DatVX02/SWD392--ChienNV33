@@ -36,7 +36,7 @@ const HomePage = () => {
 
         <main className="pt-16 banner-container">
           <Banner />
-          <div className="pt-14 main-content page-container">
+          <div className="pt-16 main-content page-container">
             <SearchBar onSearch={handleSearch} />
           </div>
         </main>
