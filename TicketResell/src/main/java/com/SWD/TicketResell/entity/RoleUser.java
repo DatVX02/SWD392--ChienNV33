@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @Builder
@@ -13,8 +11,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "purchases_history")
-public class PurchaseHistory {
+@Table(name = "role_users")
+public class RoleUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,12 +22,9 @@ public class PurchaseHistory {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "ticket_id", nullable = false)
-    private Ticket ticket;
+    @JoinColumn(name = "role_id", nullable = false)
+    private Role role;
 
-    @Column(name = "amount", length = 50, nullable = false)
-    private double amount;
-
-    @Column(name = "transaction_date_time", length = 50, nullable = false)
-    private LocalDateTime transactionDateTime;
+    @Column(name = "role_name", length = 50)
+    private String roleName;
 }

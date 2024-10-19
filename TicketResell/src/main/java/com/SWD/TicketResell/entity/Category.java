@@ -18,11 +18,12 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column(nullable = false)
+    @Column(name = "category_name", length = 50)
     String name;
 
+    @Column(name = "description", length = 50)
     String description;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     List<Ticket> tickets;
 }
