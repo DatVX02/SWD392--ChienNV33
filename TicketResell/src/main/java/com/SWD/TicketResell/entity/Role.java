@@ -16,13 +16,16 @@ import java.util.Set;
 @Table(name = "role")
 public class Role {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     String id;
 
+    @Column(name = "description", length = 255)
     String description;
 
-    @ManyToMany
-    Set<User> users;
-    @ManyToMany(fetch = FetchType.EAGER)
-    Set<Permission> permissions;
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<RolePermission> rolePermissions;
+
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<RoleUser> roleUsers; // Thêm mối quan hệ đến RoleUser
 
 }

@@ -17,13 +17,27 @@ import java.time.LocalDateTime;
 public class VerificationToken {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String token;
+    @Column(name = "token", length = 255)
+    private String token;
 
-    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "user_id")
-    User user;
+    @Column(name = "refresh_token", length = 255)
+    private String refreshToken;
 
-    LocalDateTime expiryDate;
+    @Column(name = "token_type", length = 50)
+    private String tokenType;
+
+    @Column(name = "expiration_date")
+    private LocalDateTime expirationDate;
+
+    @Column(name = "refresh_expiration_date")
+    private LocalDateTime refreshExpirationDate;
+
+    private boolean revoked;
+    private boolean expired;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

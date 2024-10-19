@@ -4,27 +4,21 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-@Getter
-@Setter
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "purchases")
-public class Purschase {
+@Table(name = "group_user")
+public class GroupUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    User user;
+    private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "ticket_id", nullable = false)
-    Ticket ticket;
 
-    @Column(name = "active", nullable = false)
-    boolean active;
 }
