@@ -15,21 +15,20 @@ export default function Footer() {
         <Container>
           <div className="flex space-x-10">
             <div className="flex-col space-y-4 my-4">
-              <div className="flex items-center space-x-20">
+              <div className="flex items-center space-x-16">
                 <Typography>Email</Typography>
                 <Typography>
                   <PhoneIcon /> Ticketreuse@gmail.com
                 </Typography>
                 <Typography>(8h00 - 21h00)</Typography>
-              </div>
-              <Divider sx={{ borderColor: "white", width: "600px" }} />
-              <div className="flex items-center space-x-20">
+                <Divider orientation="vertical" flexItem sx={{ bgcolor: "white" }} />
+                {/* <div className="flex items-center space-x-20"> */}
                 <Typography>Tư vấn khách hàng</Typography>
                 <Typography>
                   <PhoneIcon /> 1800.xxxx
                 </Typography>
                 <Typography>(8h00 - 21h00)</Typography>
-              </div>
+                {/* </div> */}</div>
             </div>
 
             {/* <div>
@@ -97,7 +96,7 @@ export default function Footer() {
                 />
               </Box>
               <Typography variant="h7" className="text-[#DF4E21] mb-4">
-                Contact với chúng tôi 
+                Contact với chúng tôi
               </Typography>
               <Box className="flex flex-wrap">
                 <img
@@ -105,12 +104,12 @@ export default function Footer() {
                   alt="Facebook"
                   className="w-12 h-12 m-1"
                 />
-                 <img
+                <img
                   src="./public/assets/images/DG-Service-Icons-LinkedIn.webp"
                   alt="LinkedIn"
                   className="w-12 h-12 m-1"
                 />
-                 <img
+                <img
                   src="./public/assets/images/Instagram_logo_2022.svg.webp"
                   alt="Instagram"
                   className="w-12 h-12 m-1"
