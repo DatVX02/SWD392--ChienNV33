@@ -17,7 +17,7 @@ export const renderProducts = (products) => {
           to={`/product-detail/${product._id}`}
           key={product.id}
           className="w-1/5 m-4 text-center rounded-lg shadow-md"
-          // onClick={() => onClick(product.id)}
+          onClick={() => onClick(product.id)}
         >
           <div className="w-96 h-96">
             <img

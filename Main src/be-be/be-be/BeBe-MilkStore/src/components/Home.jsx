@@ -13,7 +13,7 @@ export default function Home() {
       .then((data) => {
         const shuffled = data.sort(() => 0.5 - Math.random());
         setProductsSale(shuffled.slice(0, 4));
-        setProductsHot(shuffled.slice(4, 8));
+        setProductsHot(shuffled.slice(0,4));
         setProductsTrend(shuffled.slice(8, 12));
       })
       .catch((error) => console.error("Error fetching data: ", error));
@@ -41,19 +41,19 @@ export default function Home() {
           </div>
         </div> */}
         <div className="bg-white-500 w-11/12">
-          {/* <div className="bg-blue-700 text-white p-4 rounded-t-lg flex justify-between items-center mt-10">
-            <h1 className="text-2xl font-bold">FLASH SALE THÁNG 5:</h1>
-            <a href="/list-product" className="text-white underline">
+        <div className="bg-white p-4 rounded-t-lg flex justify-between items-center border-b mt-6">
+            <h1 className="text-2xl font-bold">Sự kiện đặc biệt</h1>
+            <a href="/list-product" className="p-1 flex justify-between items-center hover:bg-green-300 hover:underline">
               Xem tất cả &gt;&gt;
             </a>
-          </div> */}
+          </div>
           <div className="bg-white p-4 rounded-b-lg shadow-md">
             {renderProducts(productsSale)}
           </div>
         </div>
         <div className="bg-white-100 my-10 w-11/12">
           <div className="bg-white p-4 rounded-t-lg flex justify-between items-center border-b">
-            <h1 className="text-2xl font-bold">SẢN PHẨM BÁN CHẠY</h1>
+            <h1 className="text-2xl font-bold">Sự kiện âm nhạc</h1>
             <a href="/list-product" className="p-1 flex justify-between items-center hover:bg-green-300 hover:underline">
               Xem tất cả &gt;&gt;
             </a>
@@ -62,16 +62,16 @@ export default function Home() {
             {renderProducts(productsHot)}
           </div>
         </div>
-        <div className="bg-white-100 mb-10 w-11/12">
+        {/* <div className="bg-white-100 mb-10 w-11/12">
           <div className="bg-white p-4 rounded-t-lg flex justify-between items-center border-b">
             <h1 className="text-2xl font-bold">XU HƯỚNG TÌM KIẾM</h1>
           </div>
           <div className="bg-white p-4 rounded-b-lg shadow-md">
             {renderProducts(productsTrend)}
           </div>
-        </div>
-        <img src="./public/assets/images/image 34.png" className="w-11/12" />
-        <Information />
+        </div> */}
+        {/* <img src="./public/assets/images/image 34.png" className="w-11/12" /> */}
+        {/* <Information /> */}
       </div>
     </>
   );
