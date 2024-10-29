@@ -35,6 +35,14 @@ export default function ListProduct() {
     setSelectedButton(buttonName);
   };
 
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    })
+      .format(price)
+      .replace("₫", " VND");
+  };
   const togglePriceFilter = () => setShowPriceFilter(!showPriceFilter);
   const toggleCapacityFilter = () => setShowCapacityFilter(!showCapacityFilter);
   const toggleOriginFilter = () => setShowOriginFilter(!showOriginFilter);
@@ -396,7 +404,7 @@ export default function ListProduct() {
 
           <div className="w-3/4 ml-4">
             <div className="bg-white p-4 rounded-t-lg border-b flex justify-between items-center">
-              <h1 className="text-xl font-bold">Giá Mẹ bầu và sau sinh</h1>
+              <h1 className="text-xl font-bold"></h1>
               <div className="flex items-center space-x-4">
                 <p>Sắp xếp theo</p>
                 {[
@@ -437,14 +445,14 @@ export default function ListProduct() {
                       className="mx-auto"
                     />
                     <p className="mt-2">{product.name}</p>
-                    <div className="text-red-500 font-bold text-xl mt-2">
-                      {product.price}
-                    </div>
                     <div className="flex justify-center items-center mt-2">
                       <Rate disabled defaultValue={product.rating} />
                       <span className="text-gray-500 ml-2">
                         {product.reviews}
                       </span>
+                    </div>
+                    <div className="text-red-500 font-bold text-xl mt-2">
+                      {formatPrice(product.regular_price)}
                     </div>
                   </Link>
                 ))}
