@@ -96,6 +96,7 @@ MilkStore.users
 }]
 
 MilkStore.products
+
 [{
   "_id": {
     "$oid": "6673e5b42c4a0fd0b09dc9e4"
@@ -253,6 +254,7 @@ MilkStore.products
 }]
 
 MilkStore.orders
+
 [{
   "_id": {
     "$oid": "6673e8f62c4a0fd0b09dca6c"
@@ -552,6 +554,7 @@ MilkStore.orders
 }]
 
 MilkStore.vouchers
+
 [{
   "_id": {
     "$oid": "668a95378ce18565ef578e26"
