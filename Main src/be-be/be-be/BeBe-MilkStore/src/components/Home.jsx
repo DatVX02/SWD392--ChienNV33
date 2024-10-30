@@ -24,7 +24,7 @@ export default function Home() {
       <div className="flex flex-col items-center bg-blue-100">
         <img
           src="https://backstage.vn/storage/2024/09/Anh-trai-say-hi-concert-3.jpg"
-          className="w-11/12"
+          className="w-full"
         />
         {/* <div className="flex justify-around my-6 w-fit mx-6">
           <div className="bg-white p-4 rounded-lg shadow-md w-1/5">
