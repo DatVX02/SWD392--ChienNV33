@@ -11,10 +11,10 @@ export default function Home() {
     fetch("http://localhost:5000/api/products")
       .then((response) => response.json())
       .then((data) => {
-        const shuffled = data.sort(() => 0.5 - Math.random());
-        setProductsSale(shuffled.slice(0, 4));
-        setProductsHot(shuffled.slice(0,4));
-        setProductsTrend(shuffled.slice(8, 12));
+        // const shuffled = data.sort(() => 0.5 - Math.random());
+        setProductsSale(data.slice(0, 4));
+        setProductsHot(data.slice(0,4));
+        setProductsTrend(data.slice(8, 12));
       })
       .catch((error) => console.error("Error fetching data: ", error));
   }, []);

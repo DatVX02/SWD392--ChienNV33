@@ -11,6 +11,7 @@ import {
   Progress,
   Input,
   Tag,
+  message
 } from "antd";
 import { StarOutlined } from "@mui/icons-material";
 import Information from "./Information";
@@ -74,6 +75,7 @@ export default function ProductDetail() {
     console.log("Comment:", comment);
   };
 
+
   const handleAddToCart = async () => {
     try {
       const accessToken = localStorage.getItem("accessToken");
@@ -111,6 +113,7 @@ export default function ProductDetail() {
         }
         const cart = await response.json();
       }
+      message.success("Thêm vào giỏ hàng thành công")
     } catch (error) {
       console.error("Error adding product to cart:", error.message);
     }
@@ -172,7 +175,7 @@ export default function ProductDetail() {
       currency: "VND",
     })
       .format(price)
-      .replace("₫", " VND");
+      .replace("₫", "VND");
   };
 
   return (
@@ -197,9 +200,9 @@ export default function ProductDetail() {
             </div>
           </div>
           <div className="w-2/3 pl-8">
-            <h1 className="text-2xl font-bold">{product?.name} (New)</h1>
-            <p className="text-gray-500">Thương hiệu: {product?.brand}</p>
-            <p className="text-gray-500">SKU: {product?.SKU}</p>
+            <h1 className="text-2xl font-bold">{product?.name}</h1>
+            <p className="text-gray-500">Đơn vị tổ chức: {product?.brand}</p>
+            <p className="text-gray-500">Số ghế: {product?.SKU}</p>
             <Divider />
             <div className="flex items-center">
               <div className="flex-1">
@@ -209,14 +212,14 @@ export default function ProductDetail() {
                 </p>
               </div>
             </div>
-            <Button
+            {/* <Button
               type="primary"
               className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded mt-4"
               size="large"
             >
               FLASH SALE THÁNG 5
-            </Button>
-            <div className="mt-4 flex items-center">
+            </Button> */}
+            {/* <div className="mt-4 flex items-center">
               <img
                 src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Icon-VNPAY-QR.png"
                 alt="VNPAY"
@@ -228,9 +231,9 @@ export default function ProductDetail() {
                   Nhập mã VNPAYKID51 - Giảm thêm 15K - Áp dụng đơn hàng từ 400K
                 </p>
               </div>
-            </div>
+            </div> */}
             <div className="mt-4">
-              <p className="text-gray-500">Số lượng</p>
+              <p className="text-gray-500 mb-2">Số lượng</p>
               <div className="flex items-center">
                 <Button
                   onClick={() => setQuantity(quantity - 1)}
@@ -254,9 +257,10 @@ export default function ProductDetail() {
               >
                 Chọn mua
               </Button>
+              
             </div>
             <div className="mt-4">
-              <p className="text-gray-500">Vận chuyển đến: {location}</p>
+              <p className="text-gray-500">Nơi lấy: {location}</p>
               <Select
                 defaultValue={location}
                 onChange={handleLocationChange}
@@ -266,16 +270,16 @@ export default function ProductDetail() {
                 <Option value="Hà Nội">Hà Nội</Option>
                 <Option value="Đà Nẵng">Đà Nẵng</Option>
               </Select>
-              <p className="text-green-500 mt-2">Freeship 7km</p>
+              {/* <p className="text-green-500 mt-2">Freeship 7km</p> */}
             </div>
-            <div className="mt-4 text-red-500">
+            {/* <div className="mt-4 text-red-500">
               <p>
                 <strong>Cập nhật:</strong> Có 47 khách hàng đã mua sản phẩm
                 trong hôm nay
               </p>
-            </div>
+            </div> */}
           </div>
-          <div className="w-1/4 pl-8 flex flex-col">
+          {/* <div className="w-1/4 pl-8 flex flex-col">
             <img
               src="https://cdn-v2.kidsplaza.vn/media/wysiwyg/Landing-2024/5/tai-app/186x186-TAI-APP-T5.png"
               alt="Voucher"
@@ -307,7 +311,7 @@ export default function ProductDetail() {
                 <p className="text-gray-500">Freeship dưới 7km</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="bg-white rounded-lg shadow-lg p-8 w-11/12 mx-auto">
@@ -316,7 +320,7 @@ export default function ProductDetail() {
             <Row gutter={[16, 16]}>
               <Col span={16}>
                 <h2 className="text-xl font-bold text-blue-600">
-                  {product?.name} (New) cho bé hệ miễn dịch khỏe mạnh
+                  {product?.name}
                 </h2>
                 <p className="mt-4">
                   {isExpanded
@@ -334,12 +338,12 @@ export default function ProductDetail() {
               <Col span={8}>
                 <h3 className="text-lg font-bold">Thông tin chi tiết</h3>
                 <p className="mt-4">
-                  <strong>SKU:</strong> {product.SKU}
+                  <strong>Số ghế:</strong> {product.SKU}
                 </p>
-                <p className="mt-4">
+                {/* <p className="mt-4">
                   <strong>Xuất xứ: </strong>
                   {product.origin}
-                </p>
+                </p> */}
               </Col>
             </Row>
           </TabPane>
@@ -432,13 +436,13 @@ export default function ProductDetail() {
                   <Rate disabled defaultValue={5} className="ml-2" />
                 </div>
                 <p className="text-gray-500">
-                  Sữa tốt cho mẹ và bé, rất thơm ngon
+                  Sự kiện này hay 
                 </p>
                 <p className="text-gray-400 text-sm">0 lượt thích 04-07-2023</p>
               </div>
             </div>
           </TabPane>
-          <TabPane tab="Mẹ hỏi / BeBé trả lời" key="3">
+          {/* <TabPane tab="Mẹ hỏi / BeBé trả lời" key="3">
             <div className="flex flex-col space-y-4 items-center w-1/2">
               <Input
                 type="text"
@@ -462,7 +466,7 @@ export default function ProductDetail() {
                 Gửi bình luận
               </Button>
             </div>
-          </TabPane>
+          </TabPane> */}
         </Tabs>
       </div>
       <div className="bg-white-100 my-10 w-11/12">
@@ -477,12 +481,12 @@ export default function ProductDetail() {
                 className="bg-gray-100 p-4 rounded-lg shadow-md w-1/5 text-center"
               >
                 <img
-                  src="https://via.placeholder.com/150"
+                  src="https://cdn.vn.garenanow.com/web/fo4vn/2019-Nov/KV_GM_750X750.png"
                   alt={`Product ${productIndex}`}
                   className="mx-auto"
                 />
                 <p className="mt-2">
-                  Sữa Healthy Care số 3 (Úc) Toddler 900g dành cho trẻ 1
+                  Sự kiện giao lưu FIFA
                 </p>
                 <div className="text-red-500 font-bold text-xl mt-2">
                   {formatPrice(465000 * productIndex)}
@@ -496,7 +500,7 @@ export default function ProductDetail() {
           </div>
         </div>
       </div>
-      <Information />
+      {/* <Information /> */}
     </div>
   );
 }

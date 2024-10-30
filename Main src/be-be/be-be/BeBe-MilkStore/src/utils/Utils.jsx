@@ -8,7 +8,7 @@ export const renderProducts = (products) => {
       currency: "VND",
     })
       .format(price)
-      .replace("₫", " VND");
+      .replace("₫", "VND");
   };
   return (
     <div className="flex flex-wrap justify-around">
@@ -19,7 +19,7 @@ export const renderProducts = (products) => {
           className="w-1/5 m-4 text-center rounded-lg shadow-md"
           onClick={() => onClick(product.id)}
         >
-          <div className="w-96 h-96">
+          <div className="w-50 h-50">
             <img
               src={`http://localhost:5000/${product.image}`}
               alt={product.name}

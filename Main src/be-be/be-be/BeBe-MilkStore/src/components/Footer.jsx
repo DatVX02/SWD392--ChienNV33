@@ -11,7 +11,7 @@ import { Input, Button } from "antd";
 export default function Footer() {
   return (
     <>
-      <Box className="bg-[#00AEEF] text-white py-4">
+      <Box className="bg-[#2DC275] text-white py-4">
         <Container>
           <div className="flex space-x-10">
             <div className="flex-col space-y-4 my-4">
@@ -84,7 +84,7 @@ export default function Footer() {
                 Mua & thanh toán Online</Typography>
               <Typography>Bảo mật và bảo trì</Typography>
             </div>
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
               <Typography variant="h7" className="text-[#DF4E21] mb-4">
                 Phương thức thanh toán
               </Typography>
@@ -100,7 +100,7 @@ export default function Footer() {
               </Typography>
               <Box className="flex flex-wrap">
                 <img
-                  src="./public/assets/images/Facebook_Logo_(2019).png.webp"
+                  src="./public/assets/images/download.png"
                   alt="Facebook"
                   className="w-12 h-12 m-1"
                 />
@@ -115,7 +115,7 @@ export default function Footer() {
                   className="w-12 h-12 m-1"
                 />
               </Box>
-            </div>
+            </div> */}
           </div>
         </Container>
       </Box>

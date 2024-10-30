@@ -27,7 +27,7 @@ const productSchema = mongoose.Schema(
       required: true,
     },
     SKU: {
-      type: Number,
+      type: String,
       required: true,
     },
     origin: {
