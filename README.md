@@ -1,3 +1,15 @@
+Cách chạy: 
+- File Backend (milkstore-server): 
++ B1: cd .\milkstore-server\
++ B2: npm i 
++ B3: npm start
+
+- File Frontend (BeBe-MilkStore):
++ B1: cd BeBe-MilkStore
++ B2: npm i
++ B3: npm run dev
+
+* Chạy được chương trình tải nodejs. Link tải: https://nodejs.org/en
 MilkStore.users
 
 [{
