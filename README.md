@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Cách chạy:
 
 - File Backend (milkstore-server):
@@ -6,17 +5,14 @@
 + B2: npm i
 + B3: npm start
   
-=======
 Cách chạy: 
 - File Backend (milkstore-server): 
 + B1: cd .\milkstore-server\
 + B2: npm i 
 + B3: npm start
-
->>>>>>> 2150929c1a687402a3199817b39da69753a3d87b
 - File Frontend (BeBe-MilkStore):
 + B1: cd BeBe-MilkStore
-+ B2: npm i
++ B2: npm i 
 + B3: npm run dev
 <<<<<<< HEAD
 Chạy được chương trình tải nodejs. Link tải: https://nodejs.org/en
@@ -123,8 +119,6 @@ Chạy được chương trình tải nodejs. Link tải: https://nodejs.org/en
 * Chạy được chương trình tải nodejs. Link tải: https://nodejs.org/en
   
 MilkStore.users
->>>>>>> 2150929c1a687402a3199817b39da69753a3d87b
-
 [{
   "_id": {
     "$oid": "6673e33b2c4a0fd0b09dc9c7"
@@ -172,22 +166,16 @@ MilkStore.users
   "fullName": "user1",
   "phone_number": "0123456712",
   "email": "user1@gmail.com",
-<<<<<<< HEAD
   "password": "$2b$10$.HLL14VEQcZ04i6dFZOT5.rLzmxmK.FRclvgG9iehuK2kt8eDZFZ6",
-=======
-  "password": "$2b$10$8uIEH2Vn8IFST2UWTxzxme961MeS3h2c4VxxbpHoiPJ1gQcv/zp6u",
->>>>>>> 2150929c1a687402a3199817b39da69753a3d87b
+
   "role": "Customer",
   "status": true,
   "createdAt": {
     "$date": "2024-06-20T08:11:09.688Z"
   },
   "updatedAt": {
-<<<<<<< HEAD
     "$date": "2024-10-31T17:07:03.587Z"
-=======
-    "$date": "2024-06-20T08:11:09.688Z"
->>>>>>> 2150929c1a687402a3199817b39da69753a3d87b
+
   },
   "__v": 0
 },
@@ -228,9 +216,9 @@ MilkStore.users
   "__v": 0
 }]
 
-<<<<<<< HEAD
+
 # vouchers.json:
-=======
+
 MilkStore.products
 
 [{
@@ -687,11 +675,9 @@ MilkStore.orders
     "$date": "2024-07-15T01:35:15.194Z"
   },
   "__v": 0
-}]
+}]  
 
 MilkStore.vouchers
->>>>>>> 2150929c1a687402a3199817b39da69753a3d87b
-
 [{
   "_id": {
     "$oid": "668a95378ce18565ef578e26"
@@ -740,8 +726,3 @@ MilkStore.vouchers
   "voucher_discount": 30,
   "__v": 0
 }]
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2150929c1a687402a3199817b39da69753a3d87b
